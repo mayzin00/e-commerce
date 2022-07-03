@@ -14,6 +14,10 @@ class ProductCategory extends Model
         'id', 'name'
     ];
 
+    public  function product(){
+        return $this->hasMany('App\Models\Product', 'category_id');
+    }
+
     public function getCreatedAtAttribute($value)
     {
         return Carbon::parse($value)->format('Y-m-d H:i:s');

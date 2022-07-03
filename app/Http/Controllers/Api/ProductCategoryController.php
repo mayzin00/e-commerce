@@ -13,7 +13,7 @@ use App\Http\Requests\ProductCategoryUpdateRequest;
 class ProductCategoryController extends Controller{
     use JsonReturn;
 
-    public ProductCategoryRepositoryInterface $productCategoryRepository;
+    private ProductCategoryRepositoryInterface $productCategoryRepository;
 
     public function __construct(ProductCategoryRepositoryInterface $productCategoryRepository){
         $this->productCategoryRepository = $productCategoryRepository;
