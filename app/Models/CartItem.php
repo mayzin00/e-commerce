@@ -3,15 +3,24 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 
 class CartItem extends Model
 {
-    use HasFactory;
-
     protected $table = 'cart_items';
 
     protected $fillable = [
         'product_id'
     ];
+    public function product(){
+        return $this->belongsTo('App\Models\Product', 'product_id');
+    }
+
+    public function getCreatedAtAttribute($value){
+        return Carbon::parse($value)->format('Y-m-d H:i:s');
+    }
+
+    public function getUpdatedAtAttribute($value){
+        return Carbon::parse($value)->format('Y-m-d H:i:s');
+    }
 }

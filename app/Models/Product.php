@@ -18,6 +18,11 @@ class Product extends Model
     public function productCategory(){
         return $this->belongsTo('App\Models\ProductCategory', 'category_id');
     }
+    
+    public function cartItems()
+    {
+        return $this->hasMany('App\Models\CartItem', 'product_id');
+    }
 
     public function getPriceAttribute($value){
         return $value / 100;

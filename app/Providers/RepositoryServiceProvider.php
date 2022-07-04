@@ -6,9 +6,11 @@ use Illuminate\Support\ServiceProvider;
 
 use App\Interfaces\ProductCategoryRepositoryInterface;
 use App\Interfaces\ProductRepositoryInterface;
+use App\Interfaces\CartItemRepositoryInterface;
 
 use App\Repositories\ProductCategoryRepository;
 use App\Repositories\ProductRepository;
+use App\Repositories\CartItemRepository;
 
 
 
@@ -23,6 +25,7 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $this->app->bind('App\Interfaces\ProductCategoryRepositoryInterface','App\Repositories\ProductCategoryRepository');
         $this->app->bind('App\Interfaces\ProductRepositoryInterface','App\Repositories\ProductRepository');
+        $this->app->bind('App\Interfaces\CartItemRepositoryInterface','App\Repositories\CartItemRepository');
     }
 
     /**
